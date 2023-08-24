@@ -1,0 +1,31 @@
+package server
+
+import (
+	"fmt"
+	"log"
+	"net"
+
+	"github.com/superjcd/micro_services_demo/pongservice/config"
+	v1 "github.com/superjcd/micro_services_demo/pongservice/genproto/v1"
+	"google.golang.org/grpc"
+)
+
+func RunGrpcServer(server v1.PongServiceServer, conf *config.Config) {
+	grpcServer := grpc.NewServer()
+	v1.RegisterPongServiceServer(grpcServer, server)
+
+	fmt.Println("listening grpc on:", conf.Grpc.Port)
+	listener, err := net.Listen("tcp", conf.Grpc.Port)
+
+	if err != nil {
+		panic("listen grpc failed:" + err.Error())
+	}
+
+	go func() {
+		if err := grpcServer.Serve(listener); err != nil {
+			log.Fatalln("grpc serve failed, details:" + err.Error())
+		}
+	}()
+
+	conf.Grpc.Server = grpcServer
+}

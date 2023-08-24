@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/superjcd/micro_services_demo/pingservice/genproto/v1";
+
+
+service PingService {
+    rpc Ping(PingRequest) returns(PingResponse) {};
+}
+
+
+message PingRequest {
+    string msg = 1;
+}
+
+message PingResponse {
+    string msg = 1;
+}
