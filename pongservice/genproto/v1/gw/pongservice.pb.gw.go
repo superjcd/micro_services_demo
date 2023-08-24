@@ -82,7 +82,7 @@ func RegisterPongServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/proto.v1.PongService/Pong", runtime.WithHTTPPathPattern("/v1/pong/pong"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/proto.v1.PongService/Pong", runtime.WithHTTPPathPattern("/v1/pingpong/pong"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -146,7 +146,7 @@ func RegisterPongServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/proto.v1.PongService/Pong", runtime.WithHTTPPathPattern("/v1/pong/pong"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/proto.v1.PongService/Pong", runtime.WithHTTPPathPattern("/v1/pingpong/pong"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -166,7 +166,7 @@ func RegisterPongServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 }
 
 var (
-	pattern_PongService_Pong_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1}, []string{"v1", "pong"}, ""))
+	pattern_PongService_Pong_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "pingpong", "pong"}, ""))
 )
 
 var (

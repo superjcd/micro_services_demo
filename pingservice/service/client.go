@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pongclientv1 "github.com/superjcd/micro_services_demo/pingservice/genproto/v1"
+	pongclientv1 "github.com/superjcd/micro_services_demo/pongservice/genproto/v1"
 )
 
 func NewClient(conf *config.Config) (v1.PingServiceClient, error) {

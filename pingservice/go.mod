@@ -2,14 +2,11 @@ module github.com/superjcd/micro_services_demo/pingservice
 
 go 1.20
 
-replace (
-    pongservice => ../pongservice
-)
-
 require (
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.17.0
 	github.com/spf13/viper v1.16.0
+	github.com/superjcd/micro_services_demo/pongservice v0.0.0-20230824033630-8a12c670b894
 	google.golang.org/grpc v1.57.0
 	google.golang.org/protobuf v1.31.0
 )

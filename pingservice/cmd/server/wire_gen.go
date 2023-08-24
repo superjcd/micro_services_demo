@@ -19,6 +19,10 @@ func InitServer(conf *config.Config) (v1.PingServiceServer, error) {
 	if err != nil {
 		return nil, err
 	}
-	pingServiceServer := service.NewServer(conf, pingServiceClient)
+	pongServiceClient, err := service.NewPongClient(conf)
+	if err != nil {
+		return nil, err
+	}
+	pingServiceServer := service.NewServer(conf, pingServiceClient, pongServiceClient)
 	return pingServiceServer, nil
 }

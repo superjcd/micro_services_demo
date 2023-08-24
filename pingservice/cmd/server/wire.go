@@ -12,6 +12,7 @@ import (
 
 func InitServer(conf *config.Config) (v1.PingServiceServer, error) {
 	wire.Build(
+		service.NewPongClient,
 		service.NewClient,
 		service.NewServer,
 	)

@@ -82,7 +82,7 @@ func RegisterPingServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/proto.v1.PingService/Ping", runtime.WithHTTPPathPattern("/v1/Ping/ping"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/proto.v1.PingService/Ping", runtime.WithHTTPPathPattern("/v1/pingpong/ping"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -146,7 +146,7 @@ func RegisterPingServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/proto.v1.PingService/Ping", runtime.WithHTTPPathPattern("/v1/Ping/ping"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/proto.v1.PingService/Ping", runtime.WithHTTPPathPattern("/v1/pingpong/ping"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -166,7 +166,7 @@ func RegisterPingServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 }
 
 var (
-	pattern_PingService_Ping_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "Ping", "ping"}, ""))
+	pattern_PingService_Ping_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "pingpong", "ping"}, ""))
 )
 
 var (
